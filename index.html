@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue - Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="game">
+      <div class="game-board">
+        <board :squares="history[stepNumber].squares"></board> 
+      </div>
+      <div class="game-info">
+        <div>{{ status }}</div>
+        <ol>
+          <li v-for="(move, i) in history">
+            <button @click='jumpTo(i)'>
+              {{ i === 0 ? "Go to game start": `Go to move #${i}` }}
+            </button>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
